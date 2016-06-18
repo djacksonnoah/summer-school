@@ -18,14 +18,30 @@ namespace SummerSchool
 
             if (chooseNumber == 1)
 
-            {
-                Console.WriteLine("What is the student's first and last name that you want to enroll?");
+     
+              {
+
+                Console.WriteLine("What is the name of the student to enroll?");
+               
+                string[] name = new string[15];
+                int i, j = 0;
 
 
-                string studentName = Console.ReadLine();
+                // Storing users name and amount owed in two different array. 
+                for (i = 0; i < 15; i++)
+                {
+                    Console.Write("\n\nEnter student's name:\t");
+                    name[i] = Console.ReadLine();
 
+                    Console.WriteLine(name[i]);
+                    Console.WriteLine( "is now enrolled and will need to pay $200");
+                    Console.ReadKey();
+                }
 
-                Console.WriteLine(studentName);
+               
+   
+
+               
             }
 
             else if (chooseNumber == 2)
