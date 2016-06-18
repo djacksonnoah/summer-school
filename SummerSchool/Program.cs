@@ -10,7 +10,7 @@ namespace SummerSchool
     {
         static void Main(string[] args)
         {
-            
+            string [] array = new string [] { };
 
             Console.WriteLine( "Chose a number 1) Enroll a student  2) Unenroll a student 3) Print out the list of enrolled students 4) Exit");
 
@@ -22,7 +22,11 @@ namespace SummerSchool
                 Console.WriteLine("What is the student's first and last name that you want to enroll?");
 
 
-                    }
+                string studentName = Console.ReadLine();
+
+
+                Console.WriteLine(studentName);
+            }
 
             else if (chooseNumber == 2)
 
