@@ -8,73 +8,109 @@ namespace SummerSchool
 {
     class Program
     {
-        private static int i;
+
+        static string[] Students = new string[15];
 
         static void Main(string[] args)
         {
+            while (true)
+            {
+                int choice = Convert.ToInt32(Console.ReadLine());
             
-
-            Console.WriteLine( "Chose a number 1) Enroll a student  2) Unenroll a student 3) Print out the list of enrolled students 4) Exit");
-
-            int chooseNumber =  Convert.ToInt32(Console.ReadLine());
-
-            if (chooseNumber == 1)
-
-     
-              {
-
-                string[] myArray = new string[15];
-
-                Console.WriteLine("What is the name of the student to enroll?");
-               
-                // Storing users name and amount owed in two different array. 
-                for (i = 0; i < 15; i++)
-                {
-                    Console.Write("Enter students name ");
-                    myArray[i] = Console.ReadLine();
-
-                    Console.WriteLine(myArray[i]);
-                    Console.WriteLine( "is now enrolled and will need to pay $200");
-                    Console.ReadKey();
-                }
-
-               
-   
-
-               
-            }
-
-            else if (chooseNumber == 2)
+            if (choice == 1)
 
             {
-                Console.WriteLine("What is the student's first and last name that you want to unenroll?");
+                EnrollStudent(); //test comment
+
             }
 
-            else if (chooseNumber == 3)
+            else if (choice == 2)
 
             {
-                string[] myArray = new string[15];
-                Console.WriteLine("The list of students is:");
-                Console.WriteLine(myArray[i]);
 
-
+                UnenrollStudent();
             }
 
-            else if (chooseNumber == 4)
+            else if (choice == 3)
 
             {
-                Console.WriteLine("Have a nice day");
+
+                PrintStudents();
 
             }
 
+            else if (choice == 4)
+
+            {
+
+                break;
+            }
             else
 
             {
-                Console.WriteLine("Please choose a number between 1-4!");
+                    
+                Console.WriteLine("Please enter a number between 1-4");
+
+                     }
+
+                }
+
+                Console.ReadKey();
 
             }
 
-            Console.ReadKey();
-        }
+    private static void UnenrollStudent()
+
+    {
     }
+
+    static int GetNextAvailableSpot()
+
+    {
+        for (int i = 0; i < Students.Length; i++)
+
+
+        {
+            if (Students[i] == null)
+
+
+            {
+
+                return 1;
+            }
+        }
+
+        return -1;
+    }
+        static void EnrollStudent()
+
+        {
+
+                Console.WriteLine("What is the student's name you want to enroll?");
+
+                string student = Console.ReadLine();
+
+                int spot = GetNextAvailableSpot();
+
+                Students[spot] = student;
+
+            }
+                           
+
+            static void PrintStudents()
+
+        {
+
+            for (int i = 0; 1 < Students.Length; i++)
+
+            {
+                Console.WriteLine(Students);
+
+            }
+
+        }
+
+    }
+
 }
+   
