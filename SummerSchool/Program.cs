@@ -42,7 +42,7 @@ namespace SummerSchool
                 else if (choice == 4)
 
                 {
-
+                    Console.WriteLine("Have a nice day.");
                     break;
                 }
                 else
@@ -107,6 +107,36 @@ namespace SummerSchool
                 Console.WriteLine("Enrollment declined");
             }
             // need rest of else if for special names
+
+            else if (Lname.ToLower() == "potter")
+
+            {
+                studentCost[spot] = cost / 2;
+                Students[spot] = student;
+            }
+
+            else if (student.ToLower().Contains("tom") || student.ToLower().Contains("riddle") || student.ToLower().Contains("voldemort"))
+
+              
+
+            {
+                Console.WriteLine("Red Alert!!! He who must not be named!!!");
+                studentCost[spot] = cost;
+                Students[spot] = student;
+            }
+
+            else if (student.ToLower().Contains("longbottoms") || spot < 10   )
+            
+               
+
+                {
+                    studentCost[spot] = cost - cost;
+                    Students[spot] = student;
+
+                }
+                
+
+
 
             else
             {
