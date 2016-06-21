@@ -12,51 +12,57 @@ namespace SummerSchool
         static string[] Students = new string[15];
 
         static void Main(string[] args)
+
         {
-            while (true)
             {
-                int choice = Convert.ToInt32(Console.ReadLine());
+                
 
-                if (choice == 1)
-
+                while (true)
                 {
-                    EnrollStudent();
+                    MenuSelection();
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    if (choice == 1)
+
+                    {
+                        EnrollStudent();
+
+                    }
+
+                    else if (choice == 2)
+
+                    {
+
+                        UnenrollStudent();
+                    }
+
+                    else if (choice == 3)
+
+                    {
+
+                        PrintStudents();
+
+                    }
+
+                    else if (choice == 4)
+
+                    {
+                        Console.WriteLine("Have a nice day.");
+                        break;
+                    }
+                    else
+
+                    {
+
+                        Console.WriteLine("Please enter a number between 1-4");
+
+                    }
 
                 }
 
-                else if (choice == 2)
-
-                {
-
-                    UnenrollStudent();
-                }
-
-                else if (choice == 3)
-
-                {
-
-                    PrintStudents();
-
-                }
-
-                else if (choice == 4)
-
-                {
-                    Console.WriteLine("Have a nice day.");
-                    break;
-                }
-                else
-
-                {
-
-                    Console.WriteLine("Please enter a number between 1-4");
-
-                }
+                Console.ReadKey();
 
             }
-
-            Console.ReadKey();
-
         }
 
         private static void UnenrollStudent()
@@ -115,9 +121,26 @@ namespace SummerSchool
                 Students[spot] = student;
             }
 
+            else if (student.ToLower().Contains("longbottoms") || spot < 10)
+
+
+
+            {
+                studentCost[spot] = cost - cost;
+                Students[spot] = student;
+                if (spot < 10)
+                {
+                    Console.WriteLine(student[spot] + "is now enrolled and will need to pay £ 0.");
+                }
+                else
+                {
+                    Console.WriteLine(student[spot] + "is now enrolled and will need to pay £ 200.");
+                }
+            }
+
             else if (student.ToLower().Contains("tom") || student.ToLower().Contains("riddle") || student.ToLower().Contains("voldemort"))
 
-              
+
 
             {
                 Console.WriteLine("Red Alert!!! He who must not be named!!!");
@@ -125,46 +148,73 @@ namespace SummerSchool
                 Students[spot] = student;
             }
 
-            else if (student.ToLower().Contains("longbottoms") || spot < 10   )
             
-               
-
-                {
-                    studentCost[spot] = cost - cost;
-                    Students[spot] = student;
-
-                }
-                
-
-
-
             else
             {
                 studentCost[spot] = cost;
                 Students[spot] = student;
+                Console.WriteLine(Students + "is now enrolled and will need to pay £ 200.");
 
             }
 
         }
-            static void PrintStudents()
+        static void PrintStudents()
 
         {
 
-                for (int i = 0; i < Students.Length; i++)
+            for (int i = 0; i < Students.Length; i++)
+
+            {
+                if (Students[i] != null)
 
                 {
-                    if (Students[i] != null)
-
-                    {
-                        Console.WriteLine(i + 1 + " " + Students[i] + " owes $" + studentCost[i]);
-
-                    }
+                    Console.WriteLine(i + 1 + " " + Students[i] + " owes £" + studentCost[i]);
 
                 }
 
             }
 
         }
+        static void MenuSelection()
+
+        {
+            int Counter = 0;
+
+            for (int i = 0; i < Students.Length; i++)
+
+            {
+                if (Students[i] != null)
+
+                {
+                    Counter++;
+
+                }
+
+            }
+            if (Counter == 15)
+            {
+                Console.WriteLine("2. Unenroll a student");
+                Console.WriteLine("3. Print out list of students");
+                Console.WriteLine("4. Exit");
+            }
+            else if (Counter == 0)
+            {
+                Console.WriteLine("1. Enroll a student");
+                Console.WriteLine("3. Print out list of students");
+                Console.WriteLine("4. Exit");
+            }
+
+            else
+            {
+                Console.WriteLine("1. Enroll a student");
+                Console.WriteLine("2. Unenroll a student");
+                Console.WriteLine("3. Print out list of students");
+                Console.WriteLine("4. Exit");
+            }
+        }
+
 
     }
+
+}
 
